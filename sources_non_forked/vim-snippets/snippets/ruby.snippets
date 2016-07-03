@@ -4,7 +4,7 @@
 
 # encoding for Ruby 1.9
 snippet enc
-	# encoding: utf-8
+	# encoding: UTF-8
 
 # #!/usr/bin/env ruby
 snippet #!
@@ -714,20 +714,16 @@ snippet i18
 	I18n.t('${1:type.key}')${2}
 snippet ist
 	<%= image_submit_tag("${1:agree.png}", :id => "${2:id}"${3} %>
-snippet log
-	Rails.logger.${1:debug} ${2}
-snippet log2
-	RAILS_DEFAULT_LOGGER.${1:debug} ${2}
 snippet logd
-	logger.debug { "${1:message}" }${2}
+	Rails.logger.debug { "${1:message}" }${2}
 snippet loge
-	logger.error { "${1:message}" }${2}
+	Rails.logger.error { "${1:message}" }${2}
 snippet logf
-	logger.fatal { "${1:message}" }${2}
+	Rails.logger.fatal { "${1:message}" }${2}
 snippet logi
-	logger.info { "${1:message}" }${2}
+	Rails.logger.info { "${1:message}" }${2}
 snippet logw
-	logger.warn { "${1:message}" }${2}
+	Rails.logger.warn { "${1:message}" }${2}
 snippet mapc
 	${1:map}.${2:connect} '${3:controller/:action/:id}'
 snippet mapca
@@ -833,23 +829,23 @@ snippet sweeper
 snippet va validates_associated
 	validates_associated :${1:attribute}
 snippet va validates .., :acceptance => true
-	validates :${1:terms}, :acceptance => true
+	validates :${1:terms}, acceptance: true
 snippet vc
-	validates :${1:attribute}, :confirmation => true
+	validates :${1:attribute}, confirmation: true
 snippet ve
-	validates :${1:attribute}, :exclusion => { :in => ${2:%w( mov avi )} }
+	validates :${1:attribute}, exclusion: { in: ${2:%w( mov avi )} }
 snippet vf
-	validates :${1:attribute}, :format => { :with => /${2:regex}/ }
+	validates :${1:attribute}, format: { with: /${2:regex}/ }
 snippet vi
-	validates :${1:attribute}, :inclusion => { :in => %w(${2: mov avi }) }
+	validates :${1:attribute}, inclusion: { in: %w(${2: mov avi }) }
 snippet vl
-	validates :${1:attribute}, :length => { :in => ${2:3}..${3:20} }
+	validates :${1:attribute}, length: { in: ${2:3}..${3:20} }
 snippet vn
-	validates :${1:attribute}, :numericality => true
+	validates :${1:attribute}, numericality: true
 snippet vp
-	validates :${1:attribute}, :presence => true
+	validates :${1:attribute}, presence: true
 snippet vu
-	validates :${1:attribute}, :uniqueness => true
+	validates :${1:attribute}, uniqueness: true
 snippet format
 	format.${1:js|xml|html} { ${2} }
 snippet wc
@@ -961,7 +957,7 @@ snippet desc
 	describe ${1:class_name} do
 		${2}
 	end
-snippet descm
+snippet descp
 	describe "${1:#method}" do
 		${2:pending "Not implemented"}
 	end
@@ -988,7 +984,7 @@ snippet s.
 snippet spec
 	specify { subject.${1} }
 snippet exp
-	expect { ${1:object} }.to ${2}
+	expect ( ${1:object} ).to ${2}
 snippet raise
 	expect { ${1:object} }.to raise_error ${2:StandardError}, /${3:message_regex}/
 snippet shared
@@ -1027,14 +1023,22 @@ snippet issf
 #ShouldaMatchers#ActiveModel
 snippet isama
 	it { should allow_mass_assignment_of :${1} }
+snippet isnama
+	it { should_not allow_mass_assignment_of :${1} }
+snippet ishsp
+	it { should have_secure_password }
 snippet isav
 	it { should allow_value(${1}).for :${2} }
 snippet isee
 	it { should ensure_exclusion_of :${1} }
 snippet isei
 	it { should ensure_inclusion_of :${1} }
-snippet isel
-	it { should ensure_length_of :${1} }
+snippet isellm
+	it { should ensure_length_of(:${1}).is_at_least(${2}).is_at_most(${3}) }
+snippet isell
+	it { should ensure_length_of(:${1}).is_at_least(${2}) }
+snippet iselm
+	it { should ensure_length_of(:${1}).is_at_most(${2}) }
 snippet isva
 	it { should validate_acceptance_of :${1} }
 snippet isvc
@@ -1076,3 +1080,20 @@ snippet isresw
 	it { should respond_to(:${1}).with(${2}).arguments }
 snippet super_call
       ${1:super_class}.instance_method(:${2:method}).bind(self).call
+
+#########################
+# FactoryGirl			#
+#########################
+snippet fac
+	factory :${1:class} do
+		${2}
+	end
+snippet fgd
+	FactoryGirl.define do
+		${1}
+	end
+snippet fgc
+	FactoryGirl.create(:${1:factory})
+snippet fgb
+	FactoryGirl.build(:${1:factory})
+

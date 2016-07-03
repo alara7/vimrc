@@ -29,3 +29,9 @@ snippet ifp
 		${2}
 snippet ntc
 	= number_to_currency(${1})
+snippet i18
+	I18n.t('${1:type.key}')${2}
+snippet i18c
+	I18n.t('${1:type.key}').capitalize${2}
+snippet i18t
+	I18n.t('${1:type.key}').titleize${2}

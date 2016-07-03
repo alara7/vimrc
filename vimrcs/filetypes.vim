@@ -52,3 +52,10 @@ function! CoffeeScriptFold()
     setl foldlevelstart=1
 endfunction
 au FileType coffee call CoffeeScriptFold()
+
+""""""""""""""""""""""""""""""
+" => TaskJuggler section
+"""""""""""""""""""""""""""""""
+augroup filetypedetect
+au BufNewFile,BufRead *.tjp,*.tji               setf tjp
+augroup END
