@@ -18,7 +18,7 @@ call pathogen#helptags()
 let g:bufExplorerDefaultHelp=0
 let g:bufExplorerShowRelativePath=1
 let g:bufExplorerFindActive=1
-let g:bufExplorerSortBy='name'
+let g:bufExplorerSortBy='mru'
 map <leader>o :BufExplorer<cr>
 
 
@@ -42,7 +42,7 @@ endif
 """"""""""""""""""""""""""""""
 " => CTRL-P
 """"""""""""""""""""""""""""""
-let g:ctrlp_working_path_mode = 0
+let g:ctrlp_working_path_mode = 'r'
 
 let g:ctrlp_map = '<c-f>'
 map <c-b> :CtrlPBuffer<cr>
@@ -85,6 +85,7 @@ set grepprg=/bin/grep\ -nH
 map <leader>nn :NERDTreeToggle<cr>
 map <leader>nb :NERDTreeFromBookmark 
 map <leader>nf :NERDTreeFind<cr>
+map <leader>nc :NERDTreeCWD<cr>
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""

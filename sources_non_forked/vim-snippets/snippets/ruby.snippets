@@ -714,6 +714,8 @@ snippet i18
 	I18n.t('${1:type.key}')${2}
 snippet ist
 	<%= image_submit_tag("${1:agree.png}", :id => "${2:id}"${3} %>
+snippet logda
+	Rails.logger.debug { "ALA> ${1:message}:" + ${2} }${3}
 snippet logd
 	Rails.logger.debug { "${1:message}" }${2}
 snippet loge
@@ -953,6 +955,18 @@ snippet tctss
 ##########################
 #     Rspec snippets     #
 ##########################
+snippet rspec
+	RSpec.describe ${1:class_name} do
+		${2}
+	end
+snippet rspecc
+	RSpec.describe ${1:class_name}, type: :controller do
+		${2}
+	end
+snippet rspecm
+	RSpec.describe ${1:class_name}, type: :model do
+		${2}
+	end
 snippet desc
 	describe ${1:class_name} do
 		${2}
@@ -1029,16 +1043,16 @@ snippet ishsp
 	it { should have_secure_password }
 snippet isav
 	it { should allow_value(${1}).for :${2} }
-snippet isee
-	it { should ensure_exclusion_of :${1} }
-snippet isei
-	it { should ensure_inclusion_of :${1} }
-snippet isellm
-	it { should ensure_length_of(:${1}).is_at_least(${2}).is_at_most(${3}) }
-snippet isell
-	it { should ensure_length_of(:${1}).is_at_least(${2}) }
-snippet iselm
-	it { should ensure_length_of(:${1}).is_at_most(${2}) }
+snippet isve
+	it { should validate_exclusion_of :${1} }
+snippet isvi
+	it { should validate_inclusion_of :${1} }
+snippet isvllm
+	it { should validate_length_of(:${1}).is_at_least(${2}).is_at_most(${3}) }
+snippet isvll
+	it { should validate_length_of(:${1}).is_at_least(${2}) }
+snippet isvlm
+	it { should validate_length_of(:${1}).is_at_most(${2}) }
 snippet isva
 	it { should validate_acceptance_of :${1} }
 snippet isvc
